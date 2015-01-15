@@ -53,6 +53,8 @@ namespace liquid
         http_request_parameter( const_string name, const_string value );
         http_request_parameter & operator()( const_string name, const_string value );
         
+        http_request_parameter( std::unordered_map<std::string, std::string> values );
+        
       private:
         
         std::string m_querystring;

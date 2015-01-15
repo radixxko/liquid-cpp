@@ -792,6 +792,14 @@ namespace liquid
         
         return *this;
     }
+    
+    http_request_parameter::http_request_parameter( std::unordered_map<std::string, std::string> values ):m_querystring()
+    {
+        for( auto value = values.begin(); value != values.end(); ++value )
+        {
+            this->operator()(value->first.c_str(), value->second.c_str());
+        }
+    }
 
 /*
 	std::regex http::REGEX_DOMAIN_AND_PATH = std::regex("http[s]*://([^/\?]*)(.*)", std::regex::icase);
